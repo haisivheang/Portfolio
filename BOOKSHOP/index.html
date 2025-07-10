@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHaven - Your Online Bookstore</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"integrity="sha512-...YOUR_HASH_HERE..."crossorigin="anonymous"referrerpolicy="no-referrer"/>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="/img/image.png" alt="">
+                <h1>BookHaven</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#books" class="nav-link">Books</a>
+                <a href="#categories" class="nav-link">Categories</a>
+                <a href="#" class="nav-link">About</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search books...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i> Cart (<span id="cartCount">0</span>)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Discover Your Next Great Read</h2>
+                <p>Explore thousands of books across all genres. From bestsellers to hidden gems, find your perfect book today.</p>
+                <button class="cta-btn" onclick="document.getElementById('books').scrollIntoView()">
+                    Browse Books
+                </button>
+            </div>
+            <div class="hero-image">
+                <img src="/img/sticker 1.png" alt="Stack of books">
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2>Browse by Category</h2>
+            <div class="category-grid">
+                <div class="category-card" data-category="fiction">
+                    <div><img src="/img/cc 1.png" alt=""></div>
+                    <h3>Fiction</h3>
+                    <p>Novels, short stories, and literary works</p>
+                </div>
+                <div class="category-card" data-category="non-fiction">
+                    <div><img src="/img/a 1.png" alt=""></div>
+                    <h3>Non-Fiction</h3>
+                    <p>Biographies, history, and educational books</p>
+                </div>
+                <div class="category-card" data-category="mystery">
+                    <div><img src="/img/b 1.png" alt=""></div>
+                    <h3>Mystery</h3>
+                    <p>Thrillers, detective stories, and suspense</p>
+                </div>
+                <div class="category-card" data-category="romance">
+                    <div><img src="/img/d 1.png" alt=""></div>
+                    <h3>Romance</h3>
+                    <p>Love stories and romantic novels</p>
+                </div>
+                <div class="category-card" data-category="sci-fi">
+                    <div><img src="/img/c 1.png" alt=""></div>
+                    <h3>Sci-Fi</h3>
+                    <p>Science fiction and futuristic tales</p>
+                </div>
+                <div class="category-card" data-category="fantasy">
+                    <div><img src="/img/e 1.png" alt=""></div>
+                    <h3>Fantasy</h3>
+                    <p>Magic, adventure, and mythical worlds</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section id="books" class="books-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Books</h2>
+                <div class="filter-controls">
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="non-fiction">Non-Fiction</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="romance">Romance</option>
+                        <option value="sci-fi">Sci-Fi</option>
+                        <option value="fantasy">Fantasy</option>
+                    </select>
+                    <select id="sortFilter">
+                        <option value="title">Sort by Title</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
+            </div>
+            <div class="books-grid" id="booksGrid">
+                <!-- Books will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Shopping Cart</h2>
+                <span class="close" id="closeCart">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <h3>Total: $<span id="cartTotal">0.00</span></h3>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn btn-secondary" id="clearCart">Clear Cart</button>
+                    <button class="btn btn-primary" id="checkout">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Book Details Modal -->
+    <div id="bookModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="bookTitle"></h2>
+                <span class="close" id="closeBook">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="book-details">
+                    <img id="bookImage" src="/placeholder.svg" alt="">
+                    <div class="book-info">
+                        <p><strong>Author:</strong> <span id="bookAuthor"></span></p>
+                        <p><strong>Category:</strong> <span id="bookCategory"></span></p>
+                        <p><strong>Price:</strong> $<span id="bookPrice"></span></p>
+                        <p><strong>Rating:</strong> <span id="bookRating"></span> ⭐</p>
+                        <p><strong>Description:</strong></p>
+                        <p id="bookDescription"></p>
+                        <button class="btn btn-primary" id="addToCartFromModal">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="/img/image.png" alt="">
+                        <h3>BookHaven</h3>
+                    </div>
+                    <p>Your trusted online bookstore for all genres and ages.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#books">Books</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> info@bookhaven.com</p>
+                    <p><i class="fas fa-phone"></i> (+855) 93379383</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BookHaven. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

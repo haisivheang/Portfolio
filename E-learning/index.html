@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLearn - Online Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>EduLearn</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#courses" class="nav-link">Courses</a>
+                <a href="#dashboard" class="nav-link">Dashboard</a>
+                <a href="#about" class="nav-link">About</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn-secondary" id="loginBtn">Login</button>
+                <button class="btn-primary" id="signupBtn">Sign Up</button>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Learn Without Limits</h1>
+                <p>Discover thousands of courses from expert instructors and advance your career with our comprehensive online learning platform.</p>
+                <div class="hero-actions">
+                    <button class="btn-primary btn-large">Start Learning</button>
+                    <button class="btn-outline btn-large">Browse Courses</button>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>50K+</h3>
+                    <p>Students</p>
+                </div>
+                <div class="stat">
+                    <h3>1000+</h3>
+                    <p>Courses</p>
+                </div>
+                <div class="stat">
+                    <h3>100+</h3>
+                    <p>Instructors</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Popular Courses</h2>
+                <p>Choose from our wide range of courses designed by industry experts</p>
+            </div>
+            
+            <div class="course-filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="programming">Programming</button>
+                <button class="filter-btn" data-category="design">Design</button>
+                <button class="filter-btn" data-category="business">Business</button>
+                <button class="filter-btn" data-category="marketing">Marketing</button>
+            </div>
+
+            <div class="courses-grid" id="coursesGrid">
+                <!-- Courses will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard-section" style="display: none;">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>My Learning Dashboard</h2>
+                <p>Track your progress and continue learning</p>
+            </div>
+            
+            <div class="dashboard-stats">
+                <div class="dashboard-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3 id="enrolledCount">0</h3>
+                    <p>Courses Enrolled</p>
+                </div>
+                <div class="dashboard-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3 id="completedCount">0</h3>
+                    <p>Completed</p>
+                </div>
+                <div class="dashboard-card">
+                    <i class="fas fa-clock"></i>
+                    <h3 id="totalHours">0</h3>
+                    <p>Hours Learned</p>
+                </div>
+            </div>
+
+            <div class="enrolled-courses">
+                <h3>My Courses</h3>
+                <div class="enrolled-courses-grid" id="enrolledCoursesGrid">
+                    <!-- Enrolled courses will be populated here -->
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <!-- Course Modal -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div class="course-image">
+                    <img src="/img/study.jpg" alt="">
+                </div>
+                <div class="course-details">
+                    <h2 id="modalCourseTitle"></h2>
+                    <p class="instructor">By <span id="modalInstructor"></span></p>
+                    <div class="course-meta">
+                        <span class="duration"><i class="fas fa-clock"></i> <span id="modalDuration"></span></span>
+                        <span class="level"><i class="fas fa-signal"></i> <span id="modalLevel"></span></span>
+                        <span class="rating"><i class="fas fa-star"></i> <span id="modalRating"></span></span>
+                    </div>
+                    <p id="modalDescription"></p>
+                    <div class="course-curriculum">
+                        <h4>What you'll learn:</h4>
+                        <ul id="modalCurriculum"></ul>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn-primary btn-large" id="enrollBtn">Enroll Now</button>
+                        <span class="price" id="modalPrice"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>EduLearn</span>
+                    </div>
+                    <p>Empowering learners worldwide with quality education and expert instruction.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Programming</a></li>
+                        <li><a href="#">Design</a></li>
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Marketing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EduLearn. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

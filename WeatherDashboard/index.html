@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="main-panel">
+            <div class="header">
+                <div class="greeting">
+                    <h1>Good Morning, Heang</h1>
+                    <div class="location">
+                        <span><i class="fa fa-map-marker" style="color: red;"></i></span>
+                        <span>Phnom Penh, Cambodia</span>
+                    </div>
+                </div>
+                <div class="user-controls">
+                    <div class="toggle"> <i id="icon" class="fa fa-plus"></i> </div>
+                    <div class="notification"><i class="fa fa-bell"></i></div>
+                    <div class="profile"><i class="fa fa-user"></i></div>
+                </div>
+            </div>
+
+            <div class="current-weather">
+                <div class="time" id="current-time">11:40 PM</div>
+                <div class="date" id="current-date">Tuesday, July 11 | 06:10 AM</div>
+                
+                <div class="weather-info">
+                    <div class="weather-desc">
+                        <h3>Weather Forecast</h3>
+                        <h3>Partly Cloudy</h3>
+                        <p>Isolated thunderstorms. Precipitation: 30%</p>
+                    </div>
+                    <div class="weather-icon"></div>
+                </div>
+            </div>
+
+            <div class="charts-section">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <div class="chart-title">Hourly Forecast</div>
+                        <div class="chart-options">Showing • Rainfall</div>
+                    </div>
+                    <div class="hourly-chart">
+                        <div class="chart-line"></div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <div class="chart-title">Monthly Rainfall</div>
+                        <div class="chart-options">Jan • Feb • Mar</div>
+                    </div>
+                    <div class="rainfall-chart">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+
+                <div class="chart-container world-map">
+                    <div class="chart-header">
+                        <div class="chart-title">World Weather Radar</div>
+                        <div class="chart-options">See Interactive Map</div>
+                    </div>
+                    <div class="map-overlay"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="side-panel">
+            <div class="current-temp">
+                <div class="weather-icon" style="margin: 0 auto 10px;"></div>
+                <div class="temp-display">20° C</div>
+                <div class="temp-desc">Partly Cloudy</div>
+            </div>
+
+            <div class="weather-stats">
+                <div class="stat">
+                    <div class="stat-value">20 Km/h</div>
+                    <div class="stat-label">Wind</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">15%</div>
+                    <div class="stat-label">Hum</div>
+                </div>
+            </div>
+
+            <div class="forecast-section">
+                <div class="chart-header">
+                    <div class="chart-title">Weather Forecast</div>
+                    <div class="chart-options">Celsius ▼</div>
+                </div>
+                
+                <div class="forecast-tabs">
+                    <div class="tab active" data-tab="5-days">5 Days</div>
+                    <div class="tab" data-tab="15-days">15 Days</div>
+                    <div class="tab" data-tab="30-days">30 Days</div>
+                </div>
+
+                <div class="forecast-list">
+                    <div class="forecast-item">
+                        <div class="forecast-day">
+                            <div class="day-icon cloudy"></div>
+                            <div class="day-info">
+                                <h4>Wednesday, July 12</h4>
+                                <p>Cloudy</p>
+                            </div>
+                        </div>
+                        <div class="day-temp">18° C</div>
+                    </div>
+
+                    <div class="forecast-item">
+                        <div class="forecast-day">
+                            <div class="day-icon rainy"></div>
+                            <div class="day-info">
+                                <h4>Thursday, July 13</h4>
+                                <p>Rain</p>
+                            </div>
+                        </div>
+                        <div class="day-temp">16° C</div>
+                    </div>
+
+                    <div class="forecast-item">
+                        <div class="forecast-day">
+                            <div class="day-icon stormy"></div>
+                            <div class="day-info">
+                                <h4>Friday, July 14</h4>
+                                <p>Thunderstorm</p>
+                            </div>
+                        </div>
+                        <div class="day-temp">17° C</div>
+                    </div>
+
+                    <div class="forecast-item">
+                        <div class="forecast-day">
+                            <div class="day-icon cloudy"></div>
+                            <div class="day-info">
+                                <h4>Saturday, July 15</h4>
+                                <p>Cloudy</p>
+                            </div>
+                        </div>
+                        <div class="day-temp">22° C</div>
+                    </div>
+
+                    <div class="forecast-item">
+                        <div class="forecast-day">
+                            <div class="day-icon sunny"></div>
+                            <div class="day-info">
+                                <h4>Sunday, July 16</h4>
+                                <p>Sunny</p>
+                            </div>
+                        </div>
+                        <div class="day-temp">24° C</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-nav">
+                <div class="nav-icon active"><i class="fa fa-home"></i></div>
+                <div class="nav-icon"><i class="fa fa-users"></i></div>
+                <div class="nav-icon"><i class="fa fa-bell"></i></div>
+                <div class="nav-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="nav-icon"><i class="fa fa-cog"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Update time every second
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: true 
+            });
+            const dateString = now.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            document.getElementById('current-time').textContent = timeString;
+            document.getElementById('current-date').textContent = dateString;
+        }
+
+        // Tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Animate bars on load
+        window.addEventListener('load', function() {
+            const bars = document.querySelectorAll('.bar');
+            bars.forEach((bar, index) => {
+                setTimeout(() => {
+                    bar.style.transform = 'scaleY(1)';
+                    bar.style.transformOrigin = 'bottom';
+                }, index * 100);
+            });
+        });
+
+        // Initialize
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Add hover effects to interactive elements
+        document.querySelectorAll('.nav-icon, .user-controls > div').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
