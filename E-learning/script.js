@@ -50,7 +50,7 @@ const courses = [
         rating: 4.7,
         price: "$79",
         description: "Build comprehensive digital marketing strategies. Learn SEO, social media marketing, content marketing, and analytics.",
-        image: "img/dg.jpg",
+        image: "/img/digital.jpg",
         curriculum: [
             "Marketing Fundamentals",
             "SEO Optimization",
@@ -70,7 +70,7 @@ const courses = [
         rating: 4.6,
         price: "$149",
         description: "Develop essential leadership skills for modern business. Learn team management, strategic thinking, and decision making.",
-        image: "img/Leader.jpg",
+        image: "/img/leadership.jpg",
         curriculum: [
             "Leadership Fundamentals",
             "Team Management",
